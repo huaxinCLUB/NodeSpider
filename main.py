@@ -28,7 +28,7 @@ def getIDs(url,headers):
     response = requests.get(url, headers=headers, timeout=None, verify=False)
     response.encoding = 'utf-8'
     print(response.status_code)
-    ids = re.findall(r"/watch\?v=.+?\042",response.text)
+    ids = re.findall(r"(/watch\?v=.+?)\042",response.text)
     return ids
 
 #获取视频播放页的详情
@@ -36,26 +36,23 @@ def getContent(url, headers):
     r = requests.get(url, headers=headers, timeout=None, verify=False)
     r.encoding = 'utf-8'
     # print(r.text)
-    file_ids = re.findall(r"https://drive\.google\.com/file/d/[\w-]*",r.text)
+    file_ids = re.findall(r"https://drive\.google\.com/file/d/([\w-]*)",r.text)
+    print(file_ids)
     return file_ids
     # print(file_ids[0])
-
-
-
-
 
 if __name__ == '__main__':
     url = 'https://www.youtube.com/channel/UCOQ5AdvDNOfyEAJY5SDXVZg/videos'
     # print('https://www.youtube.com'+getIDs(url,headers)[0][:-2])
     ids = getIDs(url, headers)
     #获取最新一期的播放地址
-    video_url = "https://www.youtube.com"+ids[0][:-1]
+    video_url = "https://www.youtube.com"+ids[0]
     print(video_url)
     googleDrive_ids = getContent(video_url, headers)
     if googleDrive_ids:
         gdd.download_file_from_google_drive(file_id=googleDrive_ids[0],
                                             dest_path='./shunfengziyuan/{}.yaml'.format(datetime.datetime.now().strftime('%Y-%m-%d')),
-                                            showsize=True)
+                                            showsize=True, overwrite=True)
         requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源节点爬取成功{}".format(datetime.datetime.now().strftime('%Y-%m-%d')))
     else:
         requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源节点爬取失败{}".format(
