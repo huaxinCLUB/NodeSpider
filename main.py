@@ -1,8 +1,6 @@
 import datetime
 
 import requests
-from lxml import etree
-from bs4 import BeautifulSoup
 import re
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
