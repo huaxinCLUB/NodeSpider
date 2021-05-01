@@ -7,7 +7,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: 00 09 * * *
+    - cron: 00 01/12 * * *
   watch:
     types: [started]
 
@@ -29,7 +29,7 @@ jobs:
     - name: Build and publish
 
       run: |
-        python main.py
+        python sfzySite.py youtube.py
     - name: commit
       run: |
         git config --global user.email cuihx726@gmail.com
