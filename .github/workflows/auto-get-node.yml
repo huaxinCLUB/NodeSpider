@@ -29,7 +29,8 @@ jobs:
     - name: Build and publish
 
       run: |
-        python sfzySite.py youtube.py
+        python sfzySite.py
+        python youtube.py
     - name: commit
       run: |
         git config --global user.email cuihx726@gmail.com
