@@ -3,6 +3,7 @@ import datetime
 import requests
 import re
 from google_drive_downloader import GoogleDriveDownloader as gdd
+from pytz import timezone
 
 headers = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -51,11 +52,11 @@ if __name__ == '__main__':
     googleDrive_ids = getContent(video_url, headers)
     if googleDrive_ids:
         gdd.download_file_from_google_drive(file_id=googleDrive_ids[0],
-                                            dest_path='./shunfengYouTube/{}.yaml'.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M')),
+                                            dest_path='./shunfengYouTube/{}.yaml'.format(datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')),
                                             showsize=True, overwrite=True)
-        requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取成功{}".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M')))
+        requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取成功{}".format(datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
     else:
         requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取失败{}".format(
-            datetime.datetime.now().strftime('%Y-%m-%d %H:%M')))
+            datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
     # downYaml(url,headers)
     # print("down")
