@@ -36,10 +36,12 @@ if __name__ == '__main__':
         gdd.download_file_from_google_drive(file_id=ids[0],
                                             dest_path='./shunfengWebSite/{}.yaml'.format(datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')),
                                             showsize=True, overwrite=True)
+
+        gdd.download_file_from_google_drive(file_id=ids[0],dest_path='./newYaml/newestWB.yaml',showsize=True, overwrite=True)
         print("顺丰资源网站爬取成功")
-        requests.get('https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/网站爬取成功{}'.format(
-            datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
+        # requests.get('https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/网站爬取成功{}'.format(
+        #     datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
     else:
         print("顺丰资源网站爬取失败")
-        requests.get('https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/网站爬取失败'.format(
-            datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
+        # requests.get('https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/网站爬取失败'.format(
+        #     datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))

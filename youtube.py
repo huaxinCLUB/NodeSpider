@@ -54,9 +54,12 @@ if __name__ == '__main__':
         gdd.download_file_from_google_drive(file_id=googleDrive_ids[0],
                                             dest_path='./shunfengYouTube/{}.yaml'.format(datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')),
                                             showsize=True, overwrite=True)
-        requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取成功{}".format(datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
+        gdd.download_file_from_google_drive(file_id=googleDrive_ids[0],
+                                            dest_path='./newYaml/newestYT.yaml',showsize=True, overwrite=True)
+        # requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取成功{}".format(datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
     else:
-        requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取失败{}".format(
-            datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
+        print("顺丰资源/YouTube节点爬取失败")
+        # requests.get("https://api.day.app/3TKmw24emfnWtLN6xyDaW9/顺丰资源/YouTube节点爬取失败{}".format(
+        #     datetime.datetime.now(timezone('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')))
     # downYaml(url,headers)
     # print("down")
