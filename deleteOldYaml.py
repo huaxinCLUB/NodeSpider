@@ -32,5 +32,5 @@ def delete_file(flod):
 
 
 if __name__ == '__main__':
-    delete_file("shunfengWebSite")
-    delete_file("shunfengYouTube")
+    delete_file("WebSite")
+    delete_file("YT")
