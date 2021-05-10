@@ -32,5 +32,7 @@ def delete_file(flod):
 
 
 if __name__ == '__main__':
-    delete_file("WebSite")
-    delete_file("YT")
+    for dirname in os.listdir():
+        if os.path.isdir(dirname) and "." not in dirname:
+            print("正在检查 {} 目录".format(dirname))
+            delete_file(dirname)
