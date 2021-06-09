@@ -32,6 +32,7 @@ jobs:
         python sfzySite.py
         python youtube.py
         python mattkaydiary.py
+        python pojp.py
         python deleteOldYaml.py
     - name: commit
       run: |
